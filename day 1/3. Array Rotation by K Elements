@@ -1,0 +1,16 @@
+class Solution {
+    public static int[] rotateArray(int n, int[] arr, int k) {
+        int[] res=new int[n];
+        int j=0;
+        if(k>n) k=k%n;
+        for(int i=k;i<n;i++){
+            res[j]=arr[i];
+            j++;
+        }
+        for(int i=0;i<k;i++){
+            res[j]=arr[i];
+            j++;
+        }
+        return res;
+    }
+}
