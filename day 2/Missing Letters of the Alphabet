@@ -1,0 +1,20 @@
+class Solution {
+    public static String findMissingLetters(String str) {
+        boolean prs[]=new boolean[26];
+        String s=str.toLowerCase();
+        int n=s.length();
+        for(int i=0;i<n;i++){
+            int ch=s.charAt(i);
+            if(ch>='a' && ch<='z')
+            prs[ch-'a']=true;
+        }
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<26;i++){
+            if(!prs[i]){
+                sb.append((char)(i+'a'));
+            }
+        }
+        if(sb.length()==0) return "0";
+        return new String(sb);
+    }
+}
