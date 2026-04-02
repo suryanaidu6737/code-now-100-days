@@ -1,0 +1,19 @@
+class Solution {
+    public String convertCamelCase(String cstr) {
+        StringBuilder sb=new StringBuilder();
+        int n=cstr.length();
+        for(int i=0;i<n;i++){
+            char ch=cstr.charAt(i);
+            if(i!=0 && (ch>='A'&& ch<='Z'))
+            {
+                sb.append(" ");
+                sb.append(Character.toLowerCase(ch));
+            }else if(i==0){
+                sb.append(Character.toLowerCase(ch));
+            }else{
+                sb.append(ch);
+            }
+        }
+        return new String(sb);
+    }
+}
