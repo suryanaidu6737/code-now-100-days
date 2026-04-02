@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Main{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++) arr[i]=sc.nextInt();
+        int[] op=new int[2];
+        int l=0,r=n-1;
+        boolean found=false;
+        while(l<r){
+            if(arr[l]+arr[r]==k){
+                op[0]=++l;
+                op[1]=++r;
+                found=true;
+                break;
+            }else if(arr[l]+arr[r]>k) r--;
+            else l++;
+        }
+        if(found){
+            System.out.print(op[0]+" "+op[1]);
+        }
+	}
+}
