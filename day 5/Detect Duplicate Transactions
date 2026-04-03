@@ -1,0 +1,20 @@
+class Solution {
+    public List<String> findDuplicateTransactions(List<String> transactions) {
+        HashMap<String,Integer> map=new HashMap<>();
+        List<String> li=new ArrayList<>();
+        for(String s:transactions){
+            map.put(s,map.getOrDefault(s,0)+1);
+        }
+        boolean found=false;
+        for(Map.Entry<String,Integer> pair:map.entrySet()){
+            if(pair.getValue()>1){
+                 li.add(pair.getKey());
+                 found=true;
+            }
+        }
+        if(found)
+        return li;
+        return new ArrayList<>(Arrays.asList("-1"));
+    }
+
+}
