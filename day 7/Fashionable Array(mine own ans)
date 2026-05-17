@@ -1,0 +1,15 @@
+class Solution {
+    public int solve(int[] arr) {
+        Arrays.sort(arr);
+        int n=arr.length;
+        int ans=0;
+        if((arr[0]+arr[n-1])%2==0) return ans;
+        int left=0;
+        while((arr[left])%2!=(arr[n-1])%2) left++;
+        int right=n-1;
+        while((arr[right])%2!=(arr[0])%2) right--;
+        int r=n-1-right;
+        ans=Math.min(left,r);
+        return ans;
+    }
+}
