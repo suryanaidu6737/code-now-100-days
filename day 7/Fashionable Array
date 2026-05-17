@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] arr) {
+
+        Arrays.sort(arr);
+
+        int n = arr.length;
+
+        // Already fashionable
+        if ((arr[0] + arr[n - 1]) % 2 == 0) {
+            return 0;
+        }
+
+        // Remove from left
+        int left = 0;
+        while ((arr[left] % 2) != (arr[n - 1] % 2)) {
+            left++;
+        }
+
+        // Remove from right
+        int right = n - 1;
+        while ((arr[right] % 2) != (arr[0] % 2)) {
+            right--;
+        }
+
+        int removeLeft = left;
+        int removeRight = n - 1 - right;
+
+        return Math.min(removeLeft, removeRight);
+    }
+}
